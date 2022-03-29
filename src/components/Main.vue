@@ -2,6 +2,7 @@
     <div>
 
         <ContentMain/>
+        <CurrentSeries/>
         <MainNav/>
 
     </div>
@@ -9,12 +10,14 @@
 
 <script>
 import ContentMain from './ContentMain.vue'
+import CurrentSeries from './CurrentSeries.vue'
 import MainNav from './MainNav.vue'
 
 export default {
     name : "IndexMain",
     components: {
         ContentMain,
+        CurrentSeries,
         MainNav
     }
 }
