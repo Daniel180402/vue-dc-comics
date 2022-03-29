@@ -110,7 +110,6 @@ export default {
                 &:active,
                 &.active{
                     border-bottom: $dcBlue 4px solid;
-                    padding: 1rem 0;
                 }
             }
         }
