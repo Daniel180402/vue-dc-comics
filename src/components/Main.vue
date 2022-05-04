@@ -1,30 +1,24 @@
 <template>
-    <div>
+    <main>
 
-        <ContentMain/>
-        <CurrentSeries/>
-        <MainNav/>
-
-    </div>
+        <MainContent />
+        <MainNav />
+    </main>
 </template>
 
 <script>
-import ContentMain from './ContentMain.vue'
-import CurrentSeries from './CurrentSeries.vue'
-import MainNav from './MainNav.vue'
+import MainContent from './MainContent.vue';
+import MainNav from './MainNav.vue';
 
 export default {
     name : "IndexMain",
     components: {
-        ContentMain,
-        CurrentSeries,
+        MainContent,
         MainNav
     }
 }
 </script>
 
 <style lang="scss" scoped>
-    @import "../assets/scss/partials/_variables.scss";
 
-    
 </style>

@@ -2,10 +2,10 @@
     <nav id="main-nav">
         <div class="my-container">
             <ul>
-                <li v-for="(element, index) in listItem" :key="index">
+                <li v-for="(element, index) in listItem" :key=index>
                     <a href="#">
-                        <img :src="element.img" alt="">
-                        <h3>{{ element.name }}</h3>
+                        <img :src="require(`@/assets/img/${element.img}`)" alt="">
+                        <h4> {{element.name }}</h4>
                     </a>
                 </li>
             </ul>
@@ -15,49 +15,63 @@
 
 <script>
 export default {
-    name: "MainNav",
+    name: 'MainNav',
     data: function() {
         return{
-            listItem: [
-                {
-                    name: "Digital Comics",
-                    img: require("../assets/img/buy-comics-digital-comics.png")
-                },
-                {
-                    name: "DC Merchandise",
-                    img: require("../assets/img/buy-comics-merchandise.png")
-                },
-                {
-                    name: "Subscription",
-                    img: require("../assets/img/buy-comics-shop-locator.png")
-                },
-                {
-                    name: "Comic Shop Locator",
-                    img: require("../assets/img/buy-comics-subscriptions.png")
-                },
-                {
-                    name: "DC Power Visa",
-                    img: require("../assets/img/buy-dc-power-visa.svg")
-                }
+                listItem:
+                [
+                    {
+                        name:"digital Comics",
+                        img: 'buy-comics-digital-comics.png',
+                        url:"#"
+                    },
+                    {
+                        name:"dc Merchiandise",
+                        img: "buy-comics-merchandise.png",
+                        url:"#"
+                    },
+                    {
+                        name:"subscription",
+                        img:"buy-comics-subscriptions.png",
+                        url:"#"
+                    },
+                    {
+                        name:"comic Shop Locator",
+                        img:"buy-comics-shop-locator.png",
+                        url:"#"
+                    },
+                    {
+                        name:"dc power Visa",
+                        img:"buy-dc-power-visa.svg",
+                        url:"#"
+                    }
             ]
         }
-    }
+    },
+    methods:
+        {
+            getImageUrl(imageFolder, imagePath){
+                const finalPath = imageFolder + '/' + imagePath;
+                return require(finalPath);
+            }
+        }
 }
 </script>
 
 <style lang="scss" scoped>
-    @import "../assets/scss/partials/_variables.scss";
+@import '../assets/scss/partials/_variables.scss';
 
     nav#main-nav{
-        background-color: $dcBlue;
-        height: 15vh;
+        background-color: $primaryColor;
+        height: 16vh;
 
         div.my-container{
             display: flex;
             justify-content: center;
             height: 100%;
+        }
 
-            ul{
+        ul{
             display: flex;
 
             li{
@@ -65,22 +79,25 @@ export default {
                 padding: 0 .6rem;
                 line-height: 5.5vh;
 
+
                 a{
-                    font-size: .8rem;
-                    text-decoration: none;
-                    color: white;
-                    text-transform: uppercase;
                     display: flex;
-                    height: 100%;
+                    font-size: .8rem;
                     align-items: center;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    font-weight: 100;
+                    color: white;
+                    height: 100%;
 
                     img{
-                        height: 50%;
-                        margin: 0 .8rem;
+                        height: 40%;
+                        margin-right: 1rem;
                     }
                 }
             }
         }
-        }
     }
+
+
 </style>

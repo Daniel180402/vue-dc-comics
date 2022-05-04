@@ -1,66 +1,78 @@
 <template>
-    <div>
+    <header>
         <div class="my-container">
             <div class="header-logo">
-                <img src="../assets/img/dc-logo.png" alt="DC logo">
+                <img src="../assets/img/dc-logo.png" alt="DC Comics main logo">
             </div>
-            <nav class="header-nav">   
+
+            <nav class="header-nav">
                 <ul>
-                    <li v-for="(element, index) in navList" :key="index">
-                        <a href="#">
+                    <li v-for="(element, index) in navList"
+                    :key=index :class="{'active' : element.active}">
+                        <a :href="element.url">
                             {{ element.text }}
                         </a>
                     </li>
                 </ul>
             </nav>
         </div>
-    </div>
+    </header>
 </template>
 
 <script>
 export default {
     name : "IndexHeader",
-    data: function(){
+    data: function() {
         return {
             navList: [
                 {
-                    text: "Characters",
+                    text: "characters",
+                    url : "#",
                     active: false
                 },
                 {
-                    text: "Comics",
+                    text: "comics",
+                    url : "#",
+                    active: true
+                },
+                {
+                    text: "movies",
+                    url : "#",
                     active: false
                 },
                 {
-                    text: "Movies",
+                    text: "tv",
+                    url : "#",
                     active: false
                 },
                 {
-                    text: "TV",
+                    text: "games",
+                    url : "#",
                     active: false
                 },
                 {
-                    text: "Games",
+                    text: "collectibles",
+                    url : "#",
                     active: false
                 },
                 {
-                    text: "Collectibles",
+                    text: "videos",
+                    url : "#",
                     active: false
                 },
                 {
-                    text: "Videos",
+                    text: "fans",
+                    url : "#",
                     active: false
                 },
                 {
-                    text: "Fans",
+                    text: "news",
+                    url : "#",
                     active: false
                 },
                 {
-                    text: "News",
-                    active: false
-                },
-                {
-                    text: "Shop",
+                    text: "shop",
+                    url : "#",
                     active: false
                 },
             ]
@@ -70,12 +82,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    @import "../assets/scss/partials/_variables.scss";
+    @import '../assets/scss/partials/_variables.scss';
 
-    div{
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-        height: 15vh;
+    header{
+        margin: 2rem 0;
+        height: 13vh;
     }
 
     div.my-container{
@@ -83,40 +94,39 @@ export default {
         justify-content: space-between;
         align-items: center;
         height: 100%;
-        
+
 
         img{
-            height: 100%;
+            height: 70%;
             padding: 1rem;
         }
 
         ul{
             display: flex;
-            align-items: center;
 
             li{
                 list-style-type: none;
-                padding: 1rem;
+                padding: 0 .6rem;
                 line-height: 12vh;
 
                 a{
-                    font-size: .8rem;
+                    font-size: .7rem;
                     text-decoration: none;
-                    color: black;
                     text-transform: uppercase;
-                    font-weight: bold;
+                    font-weight: 600;
+                    color: black;
                 }
 
                 &:active,
                 &.active{
-                    border-bottom: $dcBlue 4px solid;
+                    border-bottom: $primaryColor 5px solid;
                 }
             }
         }
     }
 
-    header-nav,
-    ul{
+    nav.header-nav,
+    ul {
         height: 100%;
     }
 </style>
